@@ -88,14 +88,16 @@
   </video>
 
 
-
-  <div class="likeContain">
-                        
-    Like<button class="like"> <img class="like"src="pic/like.png" alt="like" style="width:30px"></button>500
-    | Dislike<button class="like"> <img class="like" src="pic/dislike.png" alt="like" style="width:30px"></button>500 |
-  
-  </div>
+  <form method="POST">
+      
     
+    <div class="likeContain">
+                        
+      Like<button class="like"> <img class="like"src="pic/like.png" alt="like" style="width:30px"></button>500
+      | Dislike<button class="like"> <img class="like" src="pic/dislike.png" alt="like" style="width:30px"></button>500 |
+  
+    </div>
+  </form> 
   <h3>Title: <?php echo $title; ?></h3>
 
     <!--- open video-channel-name--->
