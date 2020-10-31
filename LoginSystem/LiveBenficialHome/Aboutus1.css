@@ -1,0 +1,253 @@
+@import url('https://font.googleeapis.com/css2?family=poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'poppins',sans-serif;
+
+}
+
+
+*, *::before, *::after{
+
+	box-sizing: border-box;
+	
+	}
+
+
+body{
+	
+
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	width: 100%;
+
+}
+.grid{
+	display: grid;
+	grid-template-rows:    100px  1fr 1fr 1fr ;
+	grid-template-columns: 1fr  1fr 1fr 1fr;
+	grid-template-areas: 
+	"h h h h "
+	"s n n n "
+	"s n n n "
+	"f f f f ";
+}
+
+#main-section{
+	display: grid;
+}
+
+
+.side-bar{
+	width: 240px;
+	background-color:#e6e6ff4f;
+	padding-top: 70px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	}
+	
+
+.header{ 
+	background-color: #444;
+	grid-area: h;
+	align-items: center;
+}
+
+.header ul{
+text-align: left;
+}
+.header ul li { 
+	list-style: none;
+	display: inline-block; 
+	border: 25px;
+
+}
+.header ul li a{
+	display: block;
+	text-decoration:none;
+	text-transform: uppercase;
+	color: black;
+	font-size: 15px;
+	font-family: 'Nunito', sans-serif;
+	letter-spacing: 10px;
+	font-weight: 600;
+	padding: 20px;
+	transition: all ease 0.5s;	
+}
+/*whene you visit the wep*/
+.header ul li a:visited {
+  color: black;
+}
+/* mouse over link */
+ .header ul li a:hover {
+  background-color: #211b4385;
+}
+
+/* selected link */
+.header ul li a:active {
+  color: yellow;
+} 
+
+
+.container{
+	grid-column: 1/-1;
+	left: 40px;
+	right: 0;
+	margin-top: -10vh;
+	z-index: -1;
+	position: absolute;
+	width: 2100px;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 40px;
+}
+
+
+.container h1{
+	position: relative;
+	font-size: 40px;
+	font-weight: 600;
+	text-align: center;
+	padding-bottom: -1vh;
+}
+
+
+
+.side-bar{
+	padding-top: 2px ;
+	width: 240px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	opacity: 100%;
+	}
+
+.container .card{
+	position: relative;
+	max-width: 320px;
+	height: 360px;
+	background:#323333;
+	margin: 30px 10px;
+	padding: 20px 15px;
+	display: inline-block;
+	flex-direction: column;
+	border-bottom: 10px solid rgb(70, 230, 222);
+	border-radius: 30px;
+	transition: 0.5s ease-in-out;
+	border-radius: 36px;
+
+}
+
+.container .card:hover{
+	height: 500px;
+
+}
+.container .card .img-box{
+	position: relative;
+	width: 260px;
+	height: 240px;
+	top: 0px;
+	left: 20px;
+	z-index: 1;
+
+
+
+
+}
+.container .card .img-box img{
+	max-width: 100%;
+	
+	border-bottom: 5px solid white;
+	border-radius: 30px;
+	height: 260px;
+	border-radius: 30px;
+
+}
+
+
+
+
+.container .card .content{
+	position: relative;
+	margin-top: 0px;
+	padding: 10px 15px;
+	text-align: left;
+	color: white;
+	visibility: hidden;
+	opacity: 0;
+	transition:0.2s ease-in-out;
+
+}
+.container .card:hover .content{
+	visibility: visible;
+	opacity: 1;
+	margin-top: 25px;
+	transition-delay: 0.3s;
+
+}
+.social-media{
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.social-media ul{
+  list-style: none;
+}
+
+.social-media ul li{
+  display: inline-block;
+  cursor: pointer;
+  margin: 5px 5px;
+}
+
+.social-media img{
+  width: 25px;
+  height: 25px;
+}
+#cursor{
+	z-index: -1;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	box-sizing: border-box;
+	transition: 0.1s;
+	transform: translate(-50%,-50%);
+	border-radius: 50%;
+	pointer-events: none;
+
+
+}
+ul:hover ~ #cursor{
+	width: 100px;
+	height: 100px;
+	border: 2px dashed #2ACEE4;
+	animation: animate 5s linear infinite;
+
+
+}
+@keyframes animate 
+	{
+	0%
+	
+	{
+	transform: translate(-50%,-50%) rotate(0deg);
+	}
+	100%
+	{
+	transform: translate(-50%,-50%) rotate(360deg);
+	}
+}
+
+
+	
+}
