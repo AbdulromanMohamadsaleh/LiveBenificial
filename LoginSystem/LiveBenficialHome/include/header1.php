@@ -15,12 +15,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <html lang="en">
+
         <title>Live Benificial</title>
         <link rel="icon" href="pic/logo.png">
         <link href="https://fonts.google.com/specimen/Roboto?selection.family=PT+Sans:ital@1|Roboto:ital,wght@1,900">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/Homepagestyle.css">
         <link rel="stylesheet" href="css/uploadStyle1.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -31,7 +33,7 @@
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
             
        <script src="js/commonActionn.js"></script>
-       
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         
     </head>
 
@@ -216,4 +218,3 @@
 
          <section class="video-section">     <!--- open video-section--->
 
-         

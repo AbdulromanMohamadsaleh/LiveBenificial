@@ -1,4 +1,21 @@
 <?php  include("include/header1.php") ?>
+<script src="js/likescript.js">
+  
+</script>
+
+
+<?php
+
+    function current_url()
+    {
+
+      $url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+      $validurl=str_replace("&","&amp;",$url);
+      return $validurl;
+    }
+
+   ?>
+
 
 <style>
   .video-turn
@@ -46,6 +63,31 @@
     border:none
   }
 
+  .modal-header {display: flow-root;}
+
+  .h6, h6 {
+    font-size: 0.7rem;
+}
+
+.btn {    padding: 0.1rem 0.2rem;}
+.btn-success { padding: 0 ;}
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: .8rem .4rem;
+    font-size: 0.9rem;
+     line-height: 0; 
+    border-radius: .3rem;
+}
+
+
+
+@media screen and (max-width: 600px) {
+h6 {
+        margin-bottom: .5rem;
+        font-weight: 200;
+        line-height: 1.2;
+    }
+}}
 </style>
 
 
@@ -88,16 +130,49 @@
   </video>
 
 
-  <form method="POST">
-      
-    
-    <div class="likeContain">
+
+  <div class="likeContain">
                         
-      Like<button class="like"> <img class="like"src="pic/like.png" alt="like" style="width:30px"></button>500
-      | Dislike<button class="like"> <img class="like" src="pic/dislike.png" alt="like" style="width:30px"></button>500 |
+    Like<button class="like"> <img class="like"src="pic/like.png" alt="like" style="width:30px"></button>500
+    | Dislike<button class="like"> <img class="like" src="pic/dislike.png" alt="like" style="width:30px"></button>500 |
+
+    <button class="btn btn-warning" onclick=" alert(document.location.href)" > share </button> 
   
+
+      <!----------------------------------------------------------START SHARE------------------------------------>
+
+
+  
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Share</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h5 class="modal-title">Share this video</h5>
+        </div>
+        <div class="modal-body">
+          <p>Copy Link: <h6><br><?php echo current_url(); ?></h6></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
     </div>
-  </form> 
+ 
+  <!----------------------------------------------------------END SHARE------------------------------------>
+
+  
+  </div>
+
+
+</div> 
   <h3>Title: <?php echo $title; ?></h3>
 
     <!--- open video-channel-name--->
@@ -171,3 +246,4 @@
     border-top: 4px solid #ccc;
     }
   </style>
+
