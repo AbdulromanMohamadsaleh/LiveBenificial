@@ -136,7 +136,6 @@ h6 {
     Like<button class="like"> <img class="like"src="pic/like.png" alt="like" style="width:30px"></button>500
     | Dislike<button class="like"> <img class="like" src="pic/dislike.png" alt="like" style="width:30px"></button>500 |
 
-    <button class="btn btn-warning" onclick=" alert(document.location.href)" > share </button> 
   
 
       <!----------------------------------------------------------START SHARE------------------------------------>

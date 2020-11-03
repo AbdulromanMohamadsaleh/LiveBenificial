@@ -141,6 +141,12 @@
 
                 background-color:black;
             }
+
+            div#myModal.modal.fade.show{color:green;}
+
+            .modal-title {
+                color: green;
+            }
                
        </style>";}
      
