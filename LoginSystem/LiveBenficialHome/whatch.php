@@ -1,5 +1,10 @@
-<?php  include("include/header1.php") ?>
-<script src="js/likescript.js">
+<?php  include("include/header1.php");
+        include("likeProcess.php");
+        
+        if(!empty($_SESSION['userlog'])){
+        $username=$_SESSION['userlog'];}
+         ?>
+<script src="js/like2.js">
   
 </script>
 
@@ -89,6 +94,7 @@ h6 {
     }
 }}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
                                     
@@ -115,7 +121,7 @@ h6 {
             $userupload=$row['uploadBy'];
             $view=$row['views'];
             $view=1+$view;      //this line for update the view number
-
+            $Vid=$row['id'];
             $q2="update video set views=$view  where id=$id"; // qury to set the new value
             $query=mysqli_query($con,$q2);
 
@@ -133,13 +139,49 @@ h6 {
 
   <div class="likeContain">
                         
-    Like<button class="like"> <img class="like"src="pic/like.png" alt="like" style="width:30px"></button>500
-    | Dislike<button class="like"> <img class="like" src="pic/dislike.png" alt="like" style="width:30px"></button>500 |
+        
+              <!-- check if user likes post , style button differently-->
+             
+             
+              <i        
+                    <?php
+                    if(!empty($username)){
+                    if(userlike($id,$username)){ echo'class="fa fa-thumbs-up like-btn"';}
+                    
+                    else{ echo'class="fa fa-thumbs-o-up like-btn ff"';}}
+                    else {echo'class="fa fa-thumbs-o-up ';}?>
+                    
+                
+                    
+                   
+                    
+                    data-id="<?php echo $id;?>">
+                </i>
+                <span class="likes"><?php echo getlikes($id);  ?></span> 
+                &nbsp &nbsp &nbsp
 
-  
+                <!-- if user dislike post , style diffrint -->
+                
+                
+
+                
+               <i
+                    
+                      <?php if(!empty($username)){
+                      if(userdislike($id,$username)){echo 'class="fa fa-thumbs-down dislike-btn"';}
+                      else{echo'class="fa fa-thumbs-o-down dislike-btn"';}}
+                      else{echo'class="fa fa-thumbs-o-down"';} ?>
+
+                    
+                    
+                    
+                    
+                    data-id="<?php echo $id;?>">
+                </i>
+                <span class="dislikes"><?php echo getdislike($id);  ?></span>  
 
       <!----------------------------------------------------------START SHARE------------------------------------>
-
+                      
 
   
   <!-- Trigger the modal with a button -->
@@ -148,7 +190,7 @@ h6 {
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+   
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -164,7 +206,7 @@ h6 {
       </div>
       
     </div>
- 
+    
   <!----------------------------------------------------------END SHARE------------------------------------>
 
   
@@ -189,7 +231,6 @@ h6 {
   <hr>
   <h5>Description: <?php echo  "<br><h6>$desc</h6>"; ?></h5>
 </div>
-    
 </section>
     
     
@@ -246,3 +287,59 @@ h6 {
     }
   </style>
 
+
+
+<!------------------------------------->
+
+
+<?php
+
+    // if user clicks like or dislike button 
+
+if (isset($_POST ['action'] ) ){ 
+	$post_id=$Vid; 
+    $action=$_POST['action']; 
+    $username=$_SESSION['userlog'];
+	switch ($action) { 
+        case 'like': 
+            
+            $q="DELETE  FROM  likes WHERE username='$username' AND videoid=$post_id" ;
+            Mysqli_query($con,$q) ;
+		$sql="INSERT INTO `likes`(`username`,`videoid`,`status`) 
+			VALUES ('$username', $post_id,'like') 
+			ON DUPLICATE KEY UPDATE status='like'"; 
+        break ; 
+        
+        case 'dislike':  
+            $q="DELETE  FROM  likes WHERE username='$username' AND videoid=$post_id" ;
+            Mysqli_query($con,$q) ;
+            $sql="INSERT INTO `likes`( `username`,`videoid`,`status`) 
+			VALUES ($username, $post_id,'dislike') 
+			ON DUPLICATE KEY UPDATE status='dislike'";
+			 
+		break ; 
+		case 'unlike': 
+			$sql="DELETE  FROM  likes WHERE username='$username' AND videoid=$post_id" ; 
+		break ; 
+		case 'undislike':
+			$sql="DELETE  FROM  likes WHERE username='$username' AND videoid=$post_id" ;  
+		break ; 
+	default : 
+		break ; 
+		
+}
+
+// execute query to effect changes in the database . 
+Mysqli_query($con,$sql) ; 
+echo getRating($post_id); 
+exit (0);
+
+
+} 
+
+/////////////////////////////////////////////////////
+
+
+// Get total number of likes and dislikes for a particular post 
+
+?>

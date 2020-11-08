@@ -56,7 +56,7 @@
                 </button>
                 <span><h8><?php echo $date=date('F d Y'); ?></h8></span>
                 </form> <!--- close search-bar--->
-
+                
             <div class="menu-icon">  <!--- open menu-icon--->
 
              <a href="upload.php" aria-label="Create">
