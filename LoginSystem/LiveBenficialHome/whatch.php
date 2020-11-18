@@ -180,6 +180,91 @@ h6 {
                 </i>
                 <span class="dislikes"><?php echo getdislike($id);  ?></span>  
 
+
+                              
+      <!----------------------------------------------------------START OF REPORT Button and modal ------------------------------------>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Report">Report</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Report" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h5 class="modal-title">Report this video</h5>
+      </div>
+      <div class="modal-body">
+        <style>
+          .modal-body label{
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            border-bottom: 1px solid #9e9e9e4d;
+          }
+
+          .modal-body label:hover{
+            background-color: #9e9e9e4d;
+            border-bottom: 1px solid red;
+          }
+
+          .modal-body textarea{
+            display: block;
+            width: 100%;
+            height: 50%;
+          } 
+          
+          
+          .modal-footer button:hover{
+            background-color: #9e9e9e4d;
+          }
+
+          .modal-body p {
+            display: inline;
+          }
+
+
+        </style>
+        <form>
+        <label for="Sexual">
+        <div>
+          <input id="Sexual" type="radio" name="Report" value="Sexual">  <p>Sexual content</p>
+        </div>
+        </label>
+        
+        <label for="Abusive">
+        <div>
+          <input id="Abusive" type="radio" name="Report" value="Abusive"> <p>Abusive content</p>
+        </div>
+      </label>
+
+      <label for="Stolen"> 
+        <div>
+          <input id="Stolen" type="radio" name="Report" value="Stolen"> <p>Stolen content</p>
+        </div>  
+      </label>
+
+        <p>Extra information</p>
+        <textarea></textarea>
+
+      </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" name="Report-butt"data-dismiss="modal">Submit Report</button>
+      </div>
+    </div>
+    
+  </div>
+  </div>
+    <!----------------------------------------------------------END OF REPORT Button and modal ------------------------------------>
+
+
+
+
       <!----------------------------------------------------------START SHARE------------------------------------>
                       
 
@@ -268,9 +353,73 @@ h6 {
 
 </section>   <!--- close video-section--->
 
+
+
+
+  <!--     START    "Comment section" Syntax                  -->
     </section>
   </div>
 
+
+
+  </section>
+  
+  <style>
+    .comment-section{
+      display: grid;
+      border-top: 10px solid #9e9e9e4d;
+      width: 67%;
+      position: relative;
+      margin-left: 25px;
+      grid-column: 1/-1;
+    }
+    
+    .comment-section h5{
+    position: relative;
+    }
+
+    .comment-section input {
+      display: block;
+      border: none;
+      border-bottom: 5px solid black;
+      border-radius: 10px;
+      width: 480%;
+      height: 50px;
+    }
+
+    .comment-section button {
+      display: none;
+    
+    }
+
+    .comment-section #dddddd:checked  ~ .comment-section button {
+      display: block;
+    
+    }
+
+    
+  </style>
+  
+  <div class="comment-section">
+    <h5> Comments </h5>
+      <form action="whatch.php" method="POST">
+        
+        <label for="d"> 
+        <input href="#demo" data-toggle="tab" type="text" onclick="document.getElementById('demo').style.display='block'" placeholder="Comment here">
+        </label>
+     
+      </div> 
+    <div id="demo" class="tab-pane fade">
+      <button name="commButt" style="margin-left: 30px;">comment</button> 
+  </form> 
+      <button  type="button" href="#demo" onclick="document.getElementById('demo').style.display='none';">cancel</button> 
+    </div>
+
+      </div>
+
+
+    
+  <!--       END  "Comment section" Syntax                  -->
 
   <?php include_once("include/footer.php")?>
   
